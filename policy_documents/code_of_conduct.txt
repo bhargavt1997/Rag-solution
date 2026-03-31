@@ -1,0 +1,15 @@
+HealthBot Inc. Code of Conduct (v3.1)
+
+1. Workplace Behavior: All employees are expected to maintain professional behavior. Harassment, bullying, discrimination based on gender, race, religion, or sexual orientation will not be tolerated and may result in immediate termination.
+
+2. Conflict of Interest: Employees must disclose any personal or financial interest that may conflict with the company's interests. Moonlighting or freelancing for competitors is strictly prohibited without written approval from the CTO and HR.
+
+3. Data Privacy: Employees handling customer or patient data must comply with HIPAA and India's DPDP Act 2023. Unauthorized access, sharing, or downloading of sensitive data is a terminable offense.
+
+4. Intellectual Property: All work products, code, designs, and inventions created during employment belong to HealthBot Inc. Employees must sign an IP assignment agreement within the first week of joining.
+
+5. Social Media Policy: Employees may use social media but must not share confidential company information, client details, or disparaging remarks about the company. Violations may lead to disciplinary action.
+
+6. Reporting Violations: Employees can report violations through the anonymous Ethics Hotline (ethics@healthbot.com) or directly to the Compliance Officer. Retaliation against whistleblowers is strictly prohibited and is a terminable offense.
+
+7. Disciplinary Process: Violations are handled through a 3-step process: (a) Written Warning, (b) Suspension without pay (up to 30 days), (c) Termination. Severe violations (data breach, harassment) may result in immediate termination bypassing steps (a) and (b).

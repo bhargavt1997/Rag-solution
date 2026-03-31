@@ -1,0 +1,116 @@
+=======================================================
+📥  INGESTION PHASE
+=======================================================
+  ✅ Loaded: code_of_conduct.txt (1653 chars)
+  ✅ Loaded: insurance_policy.txt (1298 chars)
+  ✅ Loaded: leave_policy.txt (1314 chars)
+
+📂 Loaded 3 document(s)
+
+🔪 Created 13 chunks from 3 documents
+
+💾 Stored 13 chunks in ChromaDB
+
+✅ Ingestion complete!
+
+
+=======================================================
+🧪  RUNNING SAMPLE QUERIES
+=======================================================
+
+❓ Query: How many days of paternity leave can I take?
+-------------------------------------------------------
+🔍 Retrieved 3 relevant chunk(s):
+   1. [leave_policy.txt] (distance: 0.3732)
+   2. [leave_policy.txt] (distance: 0.4503)
+   3. [leave_policy.txt] (distance: 0.5746)
+
+💬 Answer:
+You can take 10 working days of paid paternity leave.
+**Source(s):** `leave_policy.txt`
+
+📄 Sources: leave_policy.txt
+=======================================================
+
+
+❓ Query: Is LASIK surgery covered under the insurance plan?
+-------------------------------------------------------
+🔍 Retrieved 3 relevant chunk(s):
+   1. [insurance_policy.txt] (distance: 0.5023)
+   2. [insurance_policy.txt] (distance: 0.6464)
+   3. [insurance_policy.txt] (distance: 0.6648)
+
+💬 Answer:
+No, LASIK surgery is not covered under the insurance plan.
+**Source(s):** `insurance_policy.txt`
+
+📄 Sources: insurance_policy.txt
+=======================================================
+
+
+❓ Query: What happens if I moonlight for a competitor?
+-------------------------------------------------------
+🔍 Retrieved 3 relevant chunk(s):
+   1. [code_of_conduct.txt] (distance: 0.5270)
+   2. [code_of_conduct.txt] (distance: 0.6342)
+   3. [code_of_conduct.txt] (distance: 0.6644)
+
+💬 Answer:
+Moonlighting or freelancing for competitors is strictly prohibited without
+written approval from the CTO and HR. Violating this policy may result in
+disciplinary action, which could include termination.
+
+**Source(s):** `code_of_conduct.txt`
+
+📄 Sources: code_of_conduct.txt
+=======================================================
+
+
+❓ Query: Can I carry forward my unused sick leave?
+-------------------------------------------------------
+🔍 Retrieved 3 relevant chunk(s):
+   1. [leave_policy.txt] (distance: 0.4886)
+   2. [leave_policy.txt] (distance: 0.5797)
+   3. [leave_policy.txt] (distance: 0.5895)
+
+💬 Answer:
+No, sick leave cannot be carried forward or encashed.
+**Source(s):** `leave_policy.txt`
+
+📄 Sources: leave_policy.txt
+=======================================================
+
+
+❓ Query: What is the sum insured under the health insurance plan?
+-------------------------------------------------------
+🔍 Retrieved 3 relevant chunk(s):
+   1. [insurance_policy.txt] (distance: 0.3905)
+   2. [insurance_policy.txt] (distance: 0.4466)
+   3. [insurance_policy.txt] (distance: 0.5246)
+
+💬 Answer:
+The base sum insured under the health insurance plan is INR 5,00,000 per
+family per year. Employees can also opt for a top-up plan of INR 10,00,000
+or INR 25,00,000 at a subsidized premium.
+
+**Source(s):** `insurance_policy.txt`
+
+📄 Sources: insurance_policy.txt
+=======================================================
+
+
+❓ Query: How do I report an ethics violation?
+-------------------------------------------------------
+🔍 Retrieved 3 relevant chunk(s):
+   1. [code_of_conduct.txt] (distance: 0.3665)
+   2. [code_of_conduct.txt] (distance: 0.5454)
+   3. [code_of_conduct.txt] (distance: 0.6487)
+
+💬 Answer:
+You can report an ethics violation through the anonymous Ethics Hotline at
+ethics@healthbot.com or directly to the Compliance Officer.
+
+**Source(s):** `code_of_conduct.txt`
+
+📄 Sources: code_of_conduct.txt
+=======================================================
