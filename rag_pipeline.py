@@ -138,13 +138,14 @@ class RecursiveChunker:
         """Split all documents into chunks."""
         all_chunks = []
         for doc in documents:
-            chunks = self._split_text(doc["content"])
-            for i, chunk_text in enumerate(chunks):
-                all_chunks.append(DocumentChunk(
-                    text=chunk_text.strip(),
+            all_chunks.extend(
+                DocumentChunk(
+                    text=text.strip(),
                     source_file=doc["source"],
                     chunk_index=i,
-                ))
+                )
+                for i, text in enumerate(self._split_text(doc["content"]))
+            )
         print(f"🔪 Created {len(all_chunks)} chunks from "
               f"{len(documents)} documents\n")
         return all_chunks
@@ -294,18 +295,16 @@ class VectorStore:
             include=["documents", "metadatas", "distances"],
         )
 
-        contexts = []
-        for i in range(len(results["ids"][0])):
-            distance = results["distances"][0][i]
-            # Filter out low-relevance chunks
-            if distance > self.RELEVANCE_THRESHOLD:
-                continue
-            contexts.append(RetrievedContext(
+        # Filter out low-relevance chunks and build contexts using list comprehension for C-level loop speed
+        return [
+            RetrievedContext(
                 text=results["documents"][0][i],
                 source_file=results["metadatas"][0][i]["source"],
-                distance=distance,
-            ))
-        return contexts
+                distance=results["distances"][0][i],
+            )
+            for i in range(len(results["ids"][0]))
+            if results["distances"][0][i] <= self.RELEVANCE_THRESHOLD
+        ]
 
 
 # ─────────────────────────────────────────────
@@ -360,16 +359,11 @@ RULES:
                 contexts=[],
             )
 
-        # Build context string with source attribution
-        context_parts = []
-        sources = set()
-        for i, ctx in enumerate(contexts, 1):
-            context_parts.append(
-                f"[Source: {ctx.source_file}]\n{ctx.text}"
-            )
-            sources.add(ctx.source_file)
-
-        context_str = "\n\n---\n\n".join(context_parts)
+        # Build context string with source attribution using fast comprehensions
+        sources = sorted(set(ctx.source_file for ctx in contexts))
+        context_str = "\n\n---\n\n".join(
+            f"[Source: {ctx.source_file}]\n{ctx.text}" for ctx in contexts
+        )
 
         # Build user message
         user_message = f"""CONTEXT:
@@ -396,7 +390,7 @@ Cite the source document(s) at the end of your answer."""
 
         return RAGResponse(
             answer=answer,
-            sources=sorted(sources),
+            sources=sources,
             contexts=contexts,
         )
 
